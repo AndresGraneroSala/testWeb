@@ -1,0 +1,31 @@
+<html>
+    <body>
+        <h1>test</h1>
+        <script>
+            // URL del archivo de texto en el servidor
+var urlArchivoTexto = 'https://raw.githubusercontent.com/AndresGraneroSala/testWeb/main/a.txt';
+
+// Realizar una solicitud Fetch para obtener el contenido del archivo de texto
+fetch(urlArchivoTexto)
+  .then(response => {
+    // Verificar si la solicitud fue exitosa (código de estado 200)
+    if (!response.ok) {
+      throw new Error('Error al obtener el archivo de texto');
+    }
+    // Devolver el cuerpo de la respuesta como texto
+    return response.text();
+  })
+  .then(textoArchivo => {
+    // Hacer algo con el contenido del archivo de texto
+    console.log(textoArchivo);
+    document.write(textoArchivo);
+  })
+  .catch(error => {
+    // Manejar errores
+    console.error('Error:', error);
+  });
+  
+
+        </script>
+    </body>
+</html>
